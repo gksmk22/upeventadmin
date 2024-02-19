@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "310630132904",
+    "firebase_url": "https://up-event-44ee1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "up-event-44ee1",
+    "storage_bucket": "up-event-44ee1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310630132904:android:0244fa3886996d0e1c269d",
+        "android_client_info": {
+          "package_name": "com.example.upeventadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310630132904-rq481luf6rlptoq2ecgn5qmarrisa6oe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMuVN7EGT4zpQR0y2SWyMCFbW7FMH56IQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310630132904-rq481luf6rlptoq2ecgn5qmarrisa6oe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "310630132904-5dftnsd05tfsj0gojrr23sl9errm2fqc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.upevent"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310630132904:android:595a004b967a63071c269d",
+        "android_client_info": {
+          "package_name": "com.ugo.upevent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310630132904-bsi50bov4cbd4rik7jjptnn66663mgpl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ugo.upevent",
+            "certificate_hash": "1a55eae0e395ef02e23a756ceb7a941d76e17ead"
+          }
+        },
+        {
+          "client_id": "310630132904-rq481luf6rlptoq2ecgn5qmarrisa6oe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMuVN7EGT4zpQR0y2SWyMCFbW7FMH56IQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310630132904-rq481luf6rlptoq2ecgn5qmarrisa6oe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "310630132904-5dftnsd05tfsj0gojrr23sl9errm2fqc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.upevent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

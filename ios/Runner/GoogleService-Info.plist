@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>310630132904-0jj38eibn9rbcgfce80jov4avggc1m4u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.310630132904-0jj38eibn9rbcgfce80jov4avggc1m4u</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>310630132904-bsi50bov4cbd4rik7jjptnn66663mgpl.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDNPA1f7Po2JcGAbwWTlRnlnr9gpN50VuE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>310630132904</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.upeventadmin</string>
+	<key>PROJECT_ID</key>
+	<string>up-event-44ee1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>up-event-44ee1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:310630132904:ios:05978d8e441035b51c269d</string>
+	<key>DATABASE_URL</key>
+	<string>https://up-event-44ee1-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

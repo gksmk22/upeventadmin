@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:upeventadmin/screens/create_markdown_description.dart';
-import 'package:upeventadmin/screens/homescreen.dart';
+import 'package:upeventadmin/screens/home_subscreen/event.dart';
+import 'package:upeventadmin/screens/home_subscreen/ticket.dart';
+import 'package:upeventadmin/screens/update_event_screen.dart';
 
 TextEditingController eventNameController = TextEditingController();
 TextEditingController eventDateController = TextEditingController();
@@ -9,7 +11,9 @@ TextEditingController eventTimeEndController = TextEditingController();
 TextEditingController eventDaysController = TextEditingController();
 TextEditingController eventAddressController = TextEditingController();
 TextEditingController eventBannerURLController = TextEditingController();
-TextEditingController createeventDescriptionController = TextEditingController();
+TextEditingController createeventDescriptionController =
+    TextEditingController();
+TextEditingController createeventPriceController = TextEditingController();
 
 class CreateEventScreen extends StatelessWidget {
   const CreateEventScreen({super.key});
@@ -23,6 +27,12 @@ class CreateEventScreen extends StatelessWidget {
           IconButton(
               onPressed: () {
                 final id = DateTime.now().microsecond.toString();
+                ticketDatabaseReference.child(id).set({
+                  "Event Name": eventNameController.text.toString(),
+                  "Event Ticket Price": eventPriceController.text.toString(),
+                  "uid": id,
+                  "User Ticket List": {}
+                });
                 databaseReference.child(id).set({
                   "Event Name": eventNameController.text.toString(),
                   "Event Start Time": eventTimeStartController.text.toString(),
@@ -33,6 +43,8 @@ class CreateEventScreen extends StatelessWidget {
                   "Event ImageURL": eventBannerURLController.text.toString(),
                   "Event Description":
                       createeventDescriptionController.text.toString(),
+                  "Event Ticket Price":
+                      createeventPriceController.text.toString(),
                   "uid": id //this is unique id for each event.
                 });
                 // clearing TextController after add event to the sever.
@@ -44,6 +56,7 @@ class CreateEventScreen extends StatelessWidget {
                 eventAddressController.clear();
                 eventBannerURLController.clear();
                 createeventDescriptionController.clear();
+                createeventPriceController.clear();
                 // going back to main screen.
                 Navigator.pop(context);
               },
@@ -94,6 +107,11 @@ class CreateEventScreen extends StatelessWidget {
                 decoration: const InputDecoration(
                     hintText: "Eg. url of the event banner image",
                     labelText: "Event Banner URL"),
+              ),
+              TextField(
+                controller: createeventPriceController,
+                decoration: const InputDecoration(
+                    hintText: "Eg. 250.00", labelText: "Event Ticket Price"),
               ),
               TextField(
                 enabled: false,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:upeventadmin/screens/homescreen.dart';
+import 'package:upeventadmin/screens/home_subscreen/event.dart';
+import 'package:upeventadmin/screens/home_subscreen/ticket.dart';
+
 import 'package:upeventadmin/screens/update_markdown_description.dart';
 
 TextEditingController eventNameController = TextEditingController();
@@ -10,6 +12,7 @@ TextEditingController eventDaysController = TextEditingController();
 TextEditingController eventAddressController = TextEditingController();
 TextEditingController eventBannerURLController = TextEditingController();
 TextEditingController eventDescriptionController = TextEditingController();
+TextEditingController eventPriceController = TextEditingController();
 
 class UpdateEventScreen extends StatelessWidget {
   final String id;
@@ -21,6 +24,7 @@ class UpdateEventScreen extends StatelessWidget {
   final String eventETime;
   final String eventAddress;
   final String eventDays;
+  final String eventPrice;
   const UpdateEventScreen(
       {super.key,
       required this.id,
@@ -31,7 +35,8 @@ class UpdateEventScreen extends StatelessWidget {
       required this.eventSTime,
       required this.eventETime,
       required this.eventAddress,
-      required this.eventDays});
+      required this.eventDays,
+      required this.eventPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +48,18 @@ class UpdateEventScreen extends StatelessWidget {
     eventAddressController.text = eventAddress;
     eventDescriptionController.text = eventDes;
     eventBannerURLController.text = eventBannerURL;
+    eventPriceController.text = eventPrice;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Update Event"),
         actions: [
           IconButton(
               onPressed: () {
+                ticketDatabaseReference.child(id).update({
+                  "Event Name": eventNameController.text.toString(),
+                  "Event Ticket Price": eventPriceController.text.toString(),
+                  "uid": id,
+                });
                 databaseReference.child(id).update({
                   "Event Name": eventNameController.text.toString(),
                   "Event Start Time": eventTimeStartController.text.toString(),
@@ -59,6 +70,7 @@ class UpdateEventScreen extends StatelessWidget {
                   "Event ImageURL": eventBannerURLController.text.toString(),
                   "Event Description":
                       eventDescriptionController.text.toString(),
+                  "Event Ticket Price": eventPriceController.text.toString(),
                   "uid": id //this is unique id for each event.
                 });
                 // clearing TextController after add event to the sever.
@@ -70,6 +82,7 @@ class UpdateEventScreen extends StatelessWidget {
                 eventAddressController.clear();
                 eventBannerURLController.clear();
                 eventDescriptionController.clear();
+                eventPriceController.clear();
                 // going back to main screen.
                 Navigator.pop(context);
                 //msg for user for update.
@@ -123,6 +136,11 @@ class UpdateEventScreen extends StatelessWidget {
                 decoration: const InputDecoration(
                     hintText: "Eg. url of the event banner image",
                     labelText: "Event Banner URL"),
+              ),
+              TextField(
+                controller: eventPriceController,
+                decoration: const InputDecoration(
+                    hintText: "Eg. 250.00", labelText: "Event Ticket Price"),
               ),
               TextField(
                 enabled: false,

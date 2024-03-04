@@ -1,7 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:upeventadmin/screens/loginscreen.dart';
 import 'package:upeventadmin/screens/ticketuserlist.dart';
 
 class TicketScreen extends StatefulWidget {
@@ -17,17 +16,6 @@ class _TicketScreenState extends State<TicketScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Column(
-          children: [
-            const Text("UP Event Admin Panel - Ticket"),
-            Text(
-              "UID : ${auth.currentUser!.uid}",
-              style: const TextStyle(fontWeight: FontWeight.w100, fontSize: 10),
-            ),
-          ],
-        ),
-      ),
       body: FirebaseAnimatedList(
           defaultChild: const Center(
             child: CircularProgressIndicator(),

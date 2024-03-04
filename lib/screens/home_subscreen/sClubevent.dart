@@ -1,21 +1,22 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:upeventadmin/screens/create_event_screen.dart';
-import 'package:upeventadmin/screens/eventview.dart';
+import 'package:upeventadmin/screens/StudentClub/create_event_screen.dart';
+import 'package:upeventadmin/screens/StudentClub/update_event_screen.dart';
 import 'package:upeventadmin/screens/home_subscreen/ticket.dart';
-import 'package:upeventadmin/screens/update_event_screen.dart';
 
-class EventScreen extends StatefulWidget {
-  const EventScreen({super.key});
+import '../eventview.dart';
+
+class StudentClubEvent extends StatefulWidget {
+  const StudentClubEvent({super.key});
 
   @override
-  State<EventScreen> createState() => _EventScreenState();
+  State<StudentClubEvent> createState() => _StudentClubEventState();
 }
 
-final databaseReference = FirebaseDatabase.instance.ref("EventsData");
+final scdatabaseReference = FirebaseDatabase.instance.ref("StudentClubEvent");
 
-class _EventScreenState extends State<EventScreen> {
+class _StudentClubEventState extends State<StudentClubEvent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +25,7 @@ class _EventScreenState extends State<EventScreen> {
           defaultChild: const Center(
             child: CircularProgressIndicator(),
           ),
-          query: databaseReference,
+          query: scdatabaseReference,
           itemBuilder: (context, snapshot, index, animation) {
             return ListTile(
               onTap: () {
@@ -76,7 +77,7 @@ class _EventScreenState extends State<EventScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => UpdateEventScreen(
+                              builder: (context) => SCUpdateEventScreen(
                                     id: snapshot.child("uid").value.toString(),
                                     eventAddress: snapshot
                                         .child("Event Address")
@@ -125,7 +126,7 @@ class _EventScreenState extends State<EventScreen> {
                       ticketDatabaseReference
                           .child(snapshot.child("uid").value.toString())
                           .remove();
-                      databaseReference
+                      scdatabaseReference
                           .child(snapshot.child("uid").value.toString())
                           .remove();
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -143,8 +144,10 @@ class _EventScreenState extends State<EventScreen> {
             );
           }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const CreateEventScreen())),
+        onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const SCCreateEventScreen())),
         child: const Icon(Icons.add),
       ),
     );

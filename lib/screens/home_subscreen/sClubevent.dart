@@ -1,8 +1,8 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:upeventadmin/screens/StudentClub/create_event_screen.dart';
-import 'package:upeventadmin/screens/StudentClub/update_event_screen.dart';
+import 'package:upeventadmin/screens/StudentClub/SCcreate_event_screen.dart';
+import 'package:upeventadmin/screens/StudentClub/SCupdate_event_screen.dart';
 import 'package:upeventadmin/screens/home_subscreen/ticket.dart';
 
 import '../eventview.dart';

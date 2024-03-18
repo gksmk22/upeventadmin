@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:simple_markdown_editor/widgets/markdown_form_field.dart';
-import 'package:upeventadmin/screens/create_event_screen.dart';
+import 'package:upeventadmin/screens/StudentClub/SCupdate_event_screen.dart';
 
-class SCCreateMarkdownDescriptionScreen extends StatefulWidget {
-  const SCCreateMarkdownDescriptionScreen({super.key});
+
+class SCUpdateMarkdownDescriptionScreen extends StatefulWidget {
+  const SCUpdateMarkdownDescriptionScreen({super.key});
 
   @override
-  State<SCCreateMarkdownDescriptionScreen> createState() =>
-      _SCCreateMarkdownDescriptionScreenState();
+  State<SCUpdateMarkdownDescriptionScreen> createState() =>
+      _SCUpdateMarkdownDescriptionScreenState();
 }
 
-class _SCCreateMarkdownDescriptionScreenState
-    extends State<SCCreateMarkdownDescriptionScreen>
+class _SCUpdateMarkdownDescriptionScreenState
+    extends State<SCUpdateMarkdownDescriptionScreen>
     with TickerProviderStateMixin {
   late TabController tabController;
   late FocusNode _focusNode;
@@ -36,7 +37,7 @@ class _SCCreateMarkdownDescriptionScreenState
       appBar: AppBar(
         title: const Column(
           children: [
-            Text("Add Description MarkDown"),
+            Text("Update Description MarkDown"),
             Text(
               "Powered by : REGO Labs",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
@@ -56,15 +57,15 @@ class _SCCreateMarkdownDescriptionScreenState
       ),
       body: TabBarView(controller: tabController, children: [
         Markdown(
-          data: createeventDescriptionController.text,
+          data: SCeventDescriptionController.text,
         ),
         MarkdownFormField(
           onChanged: (value) => setState(() {
-            createeventDescriptionController.text = value;
+            SCeventDescriptionController.text = value;
           }),
-          autoCloseAfterSelectEmoji: false,
-          controller: createeventDescriptionController,
           focusNode: _focusNode,
+          autoCloseAfterSelectEmoji: false,
+          controller: SCeventDescriptionController,
           enableToolBar: true,
           emojiConvert: true,
         )

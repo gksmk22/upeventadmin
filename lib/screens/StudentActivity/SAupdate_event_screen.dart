@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:upeventadmin/screens/StudentActivity/SAupdate_markdown_description.dart';
 import 'package:upeventadmin/screens/home_subscreen/sActivityevent.dart';
 import 'package:upeventadmin/screens/home_subscreen/ticket.dart';
 
-import 'package:upeventadmin/screens/update_markdown_description.dart';
 
-TextEditingController eventNameController = TextEditingController();
-TextEditingController eventDateController = TextEditingController();
-TextEditingController eventTimeStartController = TextEditingController();
-TextEditingController eventTimeEndController = TextEditingController();
-TextEditingController eventDaysController = TextEditingController();
-TextEditingController eventAddressController = TextEditingController();
-TextEditingController eventBannerURLController = TextEditingController();
-TextEditingController eventDescriptionController = TextEditingController();
-TextEditingController eventPriceController = TextEditingController();
+
+TextEditingController SAeventNameController = TextEditingController();
+TextEditingController SAeventDateController = TextEditingController();
+TextEditingController SAeventTimeStartController = TextEditingController();
+TextEditingController SAeventTimeEndController = TextEditingController();
+TextEditingController SAeventDaysController = TextEditingController();
+TextEditingController SAeventAddressController = TextEditingController();
+TextEditingController SAeventBannerURLController = TextEditingController();
+TextEditingController SAeventDescriptionController = TextEditingController();
+TextEditingController SAeventPriceController = TextEditingController();
 
 class SAUpdateEventScreen extends StatelessWidget {
   final String id;
@@ -40,15 +41,15 @@ class SAUpdateEventScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    eventNameController.text = eventName;
-    eventDateController.text = eventDate;
-    eventTimeStartController.text = eventSTime;
-    eventTimeEndController.text = eventETime;
-    eventDaysController.text = eventDays;
-    eventAddressController.text = eventAddress;
-    eventDescriptionController.text = eventDes;
-    eventBannerURLController.text = eventBannerURL;
-    eventPriceController.text = eventPrice;
+    SAeventNameController.text = eventName;
+    SAeventDateController.text = eventDate;
+    SAeventTimeStartController.text = eventSTime;
+    SAeventTimeEndController.text = eventETime;
+    SAeventDaysController.text = eventDays;
+    SAeventAddressController.text = eventAddress;
+    SAeventDescriptionController.text = eventDes;
+    SAeventBannerURLController.text = eventBannerURL;
+    SAeventPriceController.text = eventPrice;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Update Event"),
@@ -56,33 +57,34 @@ class SAUpdateEventScreen extends StatelessWidget {
           IconButton(
               onPressed: () {
                 ticketDatabaseReference.child(id).update({
-                  "Event Name": eventNameController.text.toString(),
-                  "Event Ticket Price": eventPriceController.text.toString(),
+                  "Event Name": SAeventNameController.text.toString(),
+                  "Event Ticket Price": SAeventPriceController.text.toString(),
                   "uid": id,
                 });
                 sadatabaseReference.child(id).update({
-                  "Event Name": eventNameController.text.toString(),
-                  "Event Start Time": eventTimeStartController.text.toString(),
-                  "Event End Time": eventTimeEndController.text.toString(),
-                  "Event Date": eventDateController.text.toString(),
-                  "Event Days": eventDaysController.text.toString(),
-                  "Event Address": eventAddressController.text.toString(),
-                  "Event ImageURL": eventBannerURLController.text.toString(),
+                  "Event Name": SAeventNameController.text.toString(),
+                  "Event Start Time":
+                      SAeventTimeStartController.text.toString(),
+                  "Event End Time": SAeventTimeEndController.text.toString(),
+                  "Event Date": SAeventDateController.text.toString(),
+                  "Event Days": SAeventDaysController.text.toString(),
+                  "Event Address": SAeventAddressController.text.toString(),
+                  "Event ImageURL": SAeventBannerURLController.text.toString(),
                   "Event Description":
-                      eventDescriptionController.text.toString(),
-                  "Event Ticket Price": eventPriceController.text.toString(),
+                      SAeventDescriptionController.text.toString(),
+                  "Event Ticket Price": SAeventPriceController.text.toString(),
                   "uid": id //this is unique id for each event.
                 });
                 // clearing TextController after add event to the sever.
-                eventNameController.clear();
-                eventTimeStartController.clear();
-                eventTimeEndController.clear();
-                eventDateController.clear();
-                eventDaysController.clear();
-                eventAddressController.clear();
-                eventBannerURLController.clear();
-                eventDescriptionController.clear();
-                eventPriceController.clear();
+                SAeventNameController.clear();
+                SAeventTimeStartController.clear();
+                SAeventTimeEndController.clear();
+                SAeventDateController.clear();
+                SAeventDaysController.clear();
+                SAeventAddressController.clear();
+                SAeventBannerURLController.clear();
+                SAeventDescriptionController.clear();
+                SAeventPriceController.clear();
                 // going back to main screen.
                 Navigator.pop(context);
                 //msg for user for update.
@@ -100,51 +102,51 @@ class SAUpdateEventScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
-                controller: eventNameController,
+                controller: SAeventNameController,
                 decoration: const InputDecoration(
                     hintText: "Eg. Techno Festival", labelText: "Event Name"),
               ),
               TextField(
-                controller: eventTimeStartController,
+                controller: SAeventTimeStartController,
                 decoration: const InputDecoration(
                     hintText: "Eg. 6:45 PM", labelText: "Event Start Time"),
               ),
               TextField(
-                controller: eventTimeEndController,
+                controller: SAeventTimeEndController,
                 decoration: const InputDecoration(
                     hintText: "Eg. 10:45 PM", labelText: "Event End Time"),
               ),
               TextField(
-                controller: eventDateController,
+                controller: SAeventDateController,
                 keyboardType: TextInputType.datetime,
                 decoration: const InputDecoration(
                     hintText: "Eg. 27/04/2024", labelText: "Event Date"),
               ),
               TextField(
-                controller: eventDaysController,
+                controller: SAeventDaysController,
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                     hintText: "Eg. 2 days duration", labelText: "Event Days"),
               ),
               TextField(
-                controller: eventAddressController,
+                controller: SAeventAddressController,
                 decoration: const InputDecoration(
                     hintText: "Eg. TMA PAI", labelText: "Event Address"),
               ),
               TextField(
-                controller: eventBannerURLController,
+                controller: SAeventBannerURLController,
                 decoration: const InputDecoration(
                     hintText: "Eg. url of the event banner image",
                     labelText: "Event Banner URL"),
               ),
               TextField(
-                controller: eventPriceController,
+                controller: SAeventPriceController,
                 decoration: const InputDecoration(
                     hintText: "Eg. 250.00", labelText: "Event Ticket Price"),
               ),
               TextField(
                 enabled: false,
-                controller: eventDescriptionController,
+                controller: SAeventDescriptionController,
                 decoration: const InputDecoration(
                     hintText: "Eg. Description of event",
                     labelText: "Event Description"),
@@ -158,7 +160,7 @@ class SAUpdateEventScreen extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                const UpdateMarkdownDescriptionScreen()));
+                                const SAUpdateMarkdownDescriptionScreen()));
                   },
                   child: const Text("Update Description"))
             ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:simple_markdown_editor/widgets/markdown_form_field.dart';
+import 'package:upeventadmin/screens/StudentActivity/SA_create_event_screen.dart';
 import 'package:upeventadmin/screens/create_event_screen.dart';
 
 class SACreateMarkdownDescriptionScreen extends StatefulWidget {
@@ -56,11 +57,11 @@ class _SACreateMarkdownDescriptionScreenState
       ),
       body: TabBarView(controller: tabController, children: [
         Markdown(
-          data: createeventDescriptionController.text,
+          data: SAcreateeventDescriptionController.text,
         ),
         MarkdownFormField(
           onChanged: (value) => setState(() {
-            createeventDescriptionController.text = value;
+            SAcreateeventDescriptionController.text = value;
           }),
           autoCloseAfterSelectEmoji: false,
           controller: createeventDescriptionController,

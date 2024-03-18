@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:upeventadmin/screens/StudentClub/create_markdown_description.dart';
+import 'package:upeventadmin/screens/StudentClub/SCcreate_markdown_description.dart';
 import 'package:upeventadmin/screens/home_subscreen/sClubevent.dart';
 import 'package:upeventadmin/screens/home_subscreen/ticket.dart';
 import 'package:upeventadmin/screens/update_event_screen.dart';
 
-TextEditingController eventNameController = TextEditingController();
-TextEditingController eventDateController = TextEditingController();
-TextEditingController eventTimeStartController = TextEditingController();
-TextEditingController eventTimeEndController = TextEditingController();
-TextEditingController eventDaysController = TextEditingController();
-TextEditingController eventAddressController = TextEditingController();
-TextEditingController eventBannerURLController = TextEditingController();
-TextEditingController createeventDescriptionController =
+TextEditingController SCeventNameController = TextEditingController();
+TextEditingController SCeventDateController = TextEditingController();
+TextEditingController SCeventTimeStartController = TextEditingController();
+TextEditingController SCeventTimeEndController = TextEditingController();
+TextEditingController SCeventDaysController = TextEditingController();
+TextEditingController SCeventAddressController = TextEditingController();
+TextEditingController SCeventBannerURLController = TextEditingController();
+TextEditingController SCcreateeventDescriptionController =
     TextEditingController();
-TextEditingController createeventPriceController = TextEditingController();
+TextEditingController SCcreateeventPriceController = TextEditingController();
 
 class SCCreateEventScreen extends StatelessWidget {
   const SCCreateEventScreen({super.key});
@@ -28,23 +28,25 @@ class SCCreateEventScreen extends StatelessWidget {
               onPressed: () {
                 final id = DateTime.now().microsecond.toString();
                 ticketDatabaseReference.child(id).set({
-                  "Event Name": eventNameController.text.toString(),
-                  "Event Ticket Price": eventPriceController.text.toString(),
+                  "Event Name": SCeventNameController.text.toString(),
+                  "Event Ticket Price":
+                      SCcreateeventPriceController.text.toString(),
                   "uid": id,
                   "User Ticket List": {}
                 });
                 scdatabaseReference.child(id).set({
-                  "Event Name": eventNameController.text.toString(),
-                  "Event Start Time": eventTimeStartController.text.toString(),
-                  "Event End Time": eventTimeEndController.text.toString(),
-                  "Event Date": eventDateController.text.toString(),
-                  "Event Days": eventDaysController.text.toString(),
+                  "Event Name": SCeventNameController.text.toString(),
+                  "Event Start Time":
+                      SCeventTimeStartController.text.toString(),
+                  "Event End Time": SCeventTimeEndController.text.toString(),
+                  "Event Date": SCeventDateController.text.toString(),
+                  "Event Days": SCeventDaysController.text.toString(),
                   "Event Address": eventAddressController.text.toString(),
                   "Event ImageURL": eventBannerURLController.text.toString(),
                   "Event Description":
-                      createeventDescriptionController.text.toString(),
+                      SCcreateeventDescriptionController.text.toString(),
                   "Event Ticket Price":
-                      createeventPriceController.text.toString(),
+                      SCcreateeventPriceController.text.toString(),
                   "uid": id //this is unique id for each event.
                 });
                 // clearing TextController after add event to the sever.
@@ -53,10 +55,10 @@ class SCCreateEventScreen extends StatelessWidget {
                 eventTimeEndController.clear();
                 eventDateController.clear();
                 eventDaysController.clear();
-                eventAddressController.clear();
-                eventBannerURLController.clear();
-                createeventDescriptionController.clear();
-                createeventPriceController.clear();
+                SCeventAddressController.clear();
+                SCeventBannerURLController.clear();
+                SCcreateeventDescriptionController.clear();
+                SCcreateeventPriceController.clear();
                 // going back to main screen.
                 Navigator.pop(context);
               },
@@ -71,51 +73,51 @@ class SCCreateEventScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
-                controller: eventNameController,
+                controller: SCeventNameController,
                 decoration: const InputDecoration(
                     hintText: "Eg. Techno Festival", labelText: "Event Name"),
               ),
               TextField(
-                controller: eventTimeStartController,
+                controller: SCeventTimeStartController,
                 decoration: const InputDecoration(
                     hintText: "Eg. 6:45 PM", labelText: "Event Start Time"),
               ),
               TextField(
-                controller: eventTimeEndController,
+                controller: SCeventTimeEndController,
                 decoration: const InputDecoration(
                     hintText: "Eg. 10:45 PM", labelText: "Event End Time"),
               ),
               TextField(
-                controller: eventDateController,
+                controller: SCeventDateController,
                 keyboardType: TextInputType.datetime,
                 decoration: const InputDecoration(
                     hintText: "Eg. 27/04/2024", labelText: "Event Date"),
               ),
               TextField(
-                controller: eventDaysController,
+                controller: SCeventDaysController,
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                     hintText: "Eg. 2 days duration", labelText: "Event Days"),
               ),
               TextField(
-                controller: eventAddressController,
+                controller: SCeventAddressController,
                 decoration: const InputDecoration(
                     hintText: "Eg. TMA PAI", labelText: "Event Address"),
               ),
               TextField(
-                controller: eventBannerURLController,
+                controller: SCeventBannerURLController,
                 decoration: const InputDecoration(
                     hintText: "Eg. url of the event banner image",
                     labelText: "Event Banner URL"),
               ),
               TextField(
-                controller: createeventPriceController,
+                controller: SCcreateeventPriceController,
                 decoration: const InputDecoration(
                     hintText: "Eg. 250.00", labelText: "Event Ticket Price"),
               ),
               TextField(
                 enabled: false,
-                controller: createeventDescriptionController,
+                controller: SCcreateeventDescriptionController,
                 decoration: const InputDecoration(
                     hintText: "Eg. Description of event",
                     labelText: "Event Description"),
